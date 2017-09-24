@@ -11,43 +11,26 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
     <link rel="profile" href="http://gmpg.org/xfn/11"/>
     <link rel="canonical" href="http://chart.dony.asia"/>
-    <style>
-        body {
-            margin: 0;
-        }
-        #edit {
-            color:#555;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 10px;
-            font-weight: 700;
-            text-decoration: none;
-            position: absolute;
-            bottom:0;
-            right:0;
-            display: block;
-            background: #eee;
-            padding: 2px 4px;
-        }
-        #edit:hover {
-            color:#000;
-        }
-    </style>
+    <style>body {margin: 0;}</style>
     <!-- Load the AJAX API -->
     <script src="https://www.google.com/jsapi"></script>
     <script>
         // Load the Visualization API and the charts package.
         google.load('visualization', '1.0', {'packages':['table', 'corechart', 'charteditor']});
-
         // Set a callback to run when the Google Visualization API is loaded.
         google.setOnLoadCallback(drawChart);
-
         function drawChart() {
             var width = getHashValue('w');
             var height = getHashValue('h');
             var chart = document.getElementById('chart');
-                chart.width = chart.style.width = width + 'px';
-                chart.height = chart.style.height = height + 'px';
-            var data = decodeURIComponent(getHashValue('d'));
+                // chart.width = chart.style.width = width + 'px';
+                // chart.height = chart.style.height = height + 'px';
+            var da = decodeURIComponent(getHashValue('d'));
+			g = JSON.parse(da);
+			delete g.options.width;
+			delete g.options.height;
+			// console.log(g);
+			data = g;
             var wrap = new google.visualization.ChartWrapper(data);
                 wrap.draw();
             var path = location.pathname.substr(0, location.pathname.lastIndexOf('/') + 1);
@@ -58,7 +41,6 @@
                 edit.href = path + 'index.html' + location.hash;
             }
         }
-
         function getHashValue(key) {
             try {
                 return location.hash.match(new RegExp(key + '=([^&]*)'))[1];
