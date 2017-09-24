@@ -104,7 +104,7 @@ chart = {
         var data = chart.wrap.toJSON();
 
         var path = location.pathname.substr(0, location.pathname.lastIndexOf('/') + 1);
-        var url = '//' + location.host + path + 'embed.html?created=' + (new Date().getTime())
+        var url = 'http://' + location.host + path + 'embed.html?created=' + (new Date().getTime())
             + '#w=' + width + '&h=' + height + '&d=' + data;
 
         if (getHashValue('noedit')) {

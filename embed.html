@@ -42,23 +42,16 @@
         google.setOnLoadCallback(drawChart);
 
         function drawChart() {
-
             var width = getHashValue('w');
             var height = getHashValue('h');
-
             var chart = document.getElementById('chart');
                 chart.width = chart.style.width = width + 'px';
                 chart.height = chart.style.height = height + 'px';
-
             var data = decodeURIComponent(getHashValue('d'));
             var wrap = new google.visualization.ChartWrapper(data);
                 wrap.draw();
-
-
             var path = location.pathname.substr(0, location.pathname.lastIndexOf('/') + 1);
-
             var edit = document.getElementById('edit');
-
             if (getHashValue('noedit')) {
                 edit.parentNode.removeChild(edit);
             } else {
