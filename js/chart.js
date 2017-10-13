@@ -93,10 +93,12 @@ chart = {
      */
     embed: function () {
         var width, height;
-        var size = $('input[name=size]:checked', '#options').val().split('x');
+        // var size = $('input[name=size]:checked', '#options').val().split('x');
 
-        width = parseInt(size[0]);
-        height = parseInt(size[1]);
+        // width = parseInt(size[0]);
+        width = 600;
+        // height = parseInt(size[1]);
+        height = 300;
 
         chart.wrap.setOption('width', width);
         chart.wrap.setOption('height', height);
@@ -113,7 +115,8 @@ chart = {
 
         $('#embed-url').val('http:' + url);
         $('#embed-html').val(
-            "<iframe src='" + url + "' frameborder='0' width='" + (width + 10) + "' height='" + (height + 10) + "'></iframe>"
+            // "<iframe src='" + url + "' frameborder='0' width='" + (width + 10) + "' height='" + (height + 10) + "'></iframe>"
+            "<iframe src='" + url + "' frameborder='0' width='100%' height='" + (height + 10) + "' style='width:100;%height:400px;'></iframe>"
         );
 
         $('#embed-iframe')
