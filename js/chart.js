@@ -113,7 +113,8 @@ chart = {
             url += '&noedit=1';
         }
 
-        $('#embed-url').val('http:' + url);
+        $('#embed-url').val( // 'http:' + 
+			url);
         $('#embed-html').val(
             // "<iframe src='" + url + "' frameborder='0' width='" + (width + 10) + "' height='" + (height + 10) + "'></iframe>"
             "<iframe src='" + url + "' frameborder='0' width='100%' height='" + (height + 10) + "' style='width:100;%height:400px;'></iframe>"
