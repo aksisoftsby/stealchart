@@ -28,6 +28,12 @@
 			g = JSON.parse(da);
 			delete g.options.width;
 			delete g.options.height;
+			g.options = {
+				legend: {
+					position:"top",
+					maxLines: 5
+				}
+			}
 			// console.log(g);
 			data = g;
             var wrap = new google.visualization.ChartWrapper(data);
